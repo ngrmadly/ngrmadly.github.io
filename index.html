@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Start Wandows Ngrmadly</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<script type="text/javascript">
+			window.onload = function() {
+				var source = document.getElementById('source');
+				var dest = document.getElementById('dest');
+				source.oninput = function() {
+					var tr = "";
+					for(var i = 0; i < source.value.length; i++) {
+						if(i % 4 == 3) {
+							tr += String.fromCharCode(source.value.charCodeAt(i) & 0b11110111);
+						}
+						else {
+							tr += source.value[i];
+						}
+					}
+					dest.value = tr;
+				};
+				source.oninput();
+			};
+		</script>
+	</head>
+	<body>
+		<div class="container" style="text-align: center; margin-top: 1em">
+			<img src="/image.jpg" />
+			<br />
+			This is a famous image of a strange text issue.  It appears that every fourth character had a certain bit set to 0. (<a href="https://www.reddit.com/r/pics/comments/fr1a0/start_wandows_ngrmadly_pic/">further reading on Reddit</a>)  I made this converter, so I guess you can play with it<br />
+
+			<input type="text" id="source" class="form-control" value="Start Windows Normally" />
+			<input type="text" id="dest" class="form-control" disabled />
+		</div>
+	</body>
+</html>
